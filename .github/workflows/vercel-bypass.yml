@@ -1,0 +1,23 @@
+name: Vercel Auto-Deploy Bypass
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  auto-deploy:
+    runs-on: ubuntu-latest
+    if: github.actor != 'saptha-snpsu'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.OWNER_PAT }}
+          fetch-depth: 0
+
+      - name: Push empty commit as owner to trigger Vercel
+        run: |
+          git config user.name "saptha-snpsu"
+          git config user.email "saptha.snpsu@gmail.com"
+          git commit --allow-empty -m "🚀 Auto-deploying collaborator changes"
+          git push
