@@ -14,12 +14,26 @@
         .hero-image {
             position: relative;
             height: 92vh;
-            background: url("bg.png") center/cover no-repeat;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 177.78vh;
+            min-width: 100%;
+            height: 56.25vw;
+            min-height: 100%;
+            border: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .hero-overlay {
@@ -127,6 +141,9 @@
 
     <!-- HERO -->
     <section class="hero-image">
+        <iframe class="hero-video"
+            src="https://www.youtube.com/embed/unzpUuOvFtw?autoplay=1&mute=1&loop=1&playlist=unzpUuOvFtw&controls=0&modestbranding=1&rel=0"
+            title="SAPTHA campus video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="hero-overlay"></div>
         <div class="hero-content container">
             <h2>Your smart campus companion — designed to elevate your academics.</h2>
